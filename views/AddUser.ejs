@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add User</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Add User</h2>
+      <form action="/ekle" method="POST">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" name="phone" />
+        </div>
+        <div>
+          <label for="role">Role:</label>
+          <select id="role" name="role" required>
+            <option value="admin">Admin</option>
+            <option value="normal_user">Normal User</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit">Add User</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

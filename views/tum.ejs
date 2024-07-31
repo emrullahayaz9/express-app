@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tüm Kullanıcılar</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tüm Kullanıcılar</h1>
+    <% if (users.length === 0) { %>
+    <p>Listede hiç kullanıcı bulunmuyor.</p>
+    <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Uuid</th>
+          <th>Ad</th>
+          <th>E-posta</th>
+          <th>Telefon</th>
+          <th>İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td>
+            <a
+              href="/sil/<%= user.id %>"
+              onclick="return confirm('Kullanıcıyı silmek istediğinizden emin misiniz?')"
+              >Sil</a
+            >
+            <a href="/guncelle/<%= user.id %>">Düzenle</a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %>
+    <br />
+    <a href="/">Ana Sayfa</a>
+    <a href="/ekle">Kişi Ekle</a>
+  </body>
+</html>
